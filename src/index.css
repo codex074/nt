@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SUNFLOWER & WARM LOVE THEME
+   ============================================================ */
+
+@theme {
+  /* Color Palette */
+  --color-sunflower: #F4D03F;
+  --color-sunflower-dark: #D4AC0D;
+  --color-sunflower-light: #FCF3CF;
+  --color-cream: #FEF9E7;
+  --color-brown: #5D4037;
+  --color-brown-light: #795548;
+  --color-charcoal: #333333;
+  --color-olive: #6B8E23;
+  --color-olive-light: #9ACD32;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px rgba(93, 64, 55, 0.08);
+  --shadow-medium: 0 8px 32px rgba(93, 64, 55, 0.12);
+  --shadow-strong: 0 16px 48px rgba(93, 64, 55, 0.16);
+
+  /* Border Radius */
+  --radius-soft: 16px;
+  --radius-round: 24px;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   BASE STYLES
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* ============================================================
+   GLASSMORPHISM CARD
+   ============================================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: var(--radius-round);
+  box-shadow: var(--shadow-medium);
+}
+
+.glass-card-strong {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-round);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ============================================================
+   SUNFLOWER SPINNER
+   ============================================================ */
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.sunflower-spin {
+  animation: spin-slow 3s linear infinite;
+  display: inline-block;
+  font-size: 3rem;
+}
+
+/* ============================================================
+   GRADIENT BACKGROUNDS
+   ============================================================ */
+
+.gradient-warm {
+  background: linear-gradient(135deg, var(--color-cream) 0%, var(--color-sunflower-light) 100%);
+}
+
+.gradient-sunflower {
+  background: linear-gradient(135deg, var(--color-sunflower) 0%, var(--color-sunflower-dark) 100%);
+}
+
+/* ============================================================
+   SCROLLBAR STYLING
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sunflower);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sunflower-dark);
+}
+
+/* ============================================================
+   SELECTION STYLING
+   ============================================================ */
+
+::selection {
+  background: var(--color-sunflower);
+  color: var(--color-brown);
+}
+
+/* ============================================================
+   MASONRY GRID
+   ============================================================ */
+
+.masonry-grid {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .masonry-grid {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .masonry-grid {
+    column-count: 3;
+  }
+}
+
+.masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   FOCUS STATES
+   ============================================================ */
+
+input:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-sunflower);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   TRANSITION UTILITIES
+   ============================================================ */
+
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   SCROLLBAR HIDE (for horizontal carousels)
+   ============================================================ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari and Opera */
+}
+
+/* ============================================================
+   MARQUEE ANIMATION (for auto-scrolling gallery rows)
+   ============================================================ */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Pause when parent is hovered */
+.group:hover .animate-marquee {
+  animation-play-state: paused;
+}
