@@ -11,15 +11,15 @@
   <meta name="theme-color" content="#F4D03F" />
 
   <!-- PWA Meta Tags -->
-  <link rel="manifest" href="/nt/manifest.json" />
+  <link rel="manifest" href="manifest.json" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="apple-mobile-web-app-title" content="NTogether" />
 
   <!-- Apple Touch Icons -->
-  <link rel="apple-touch-icon" href="/nt/icons/icon-152x152.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/nt/icons/icon-192x192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="icons/icon-192x192.png" />
 
   <!-- Google Fonts: Inter (UI) + Playfair Display (Romantic Serif) + Noto Serif Thai -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +40,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
+        navigator.serviceWorker.register('sw.js')
           .then((registration) => {
             console.log('PWA: Service Worker registered successfully');
           })

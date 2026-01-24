@@ -1,8 +1,9 @@
 const CACHE_NAME = 'ntogether-v1';
+const BASE_PATH = '/nt';
 const urlsToCache = [
-    '/',
-    '/index.html',
-    '/manifest.json',
+    `${BASE_PATH}/`,
+    `${BASE_PATH}/index.html`,
+    `${BASE_PATH}/manifest.json`,
 ];
 
 // Install event - cache core assets
